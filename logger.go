@@ -1,4 +1,4 @@
-package logger
+package glogger
 
 import (
 	"fmt"
@@ -48,7 +48,6 @@ func (l *Logger) writeLevel(format string, level int, args ...any) {
     case 3:
         level_string = "ERROR"
     default:
-        fmt.Println("Invalid logging level!")
         return
     }
     to_format := fmt.Sprintf("[%v %v]: %v\n", level_string, time_string, format)
@@ -93,8 +92,6 @@ func (l *Logger) writeToLog(content []byte) {
             }
 
             total += write
-            fmt.Printf("len(content): %v\n", len(content))
-            fmt.Printf("total: %v\n", total)
         }
     }
 }
